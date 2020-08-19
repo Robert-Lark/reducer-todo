@@ -1,15 +1,30 @@
 import React, {useReducer} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 import { classReducer, initialState } from "./Reducers";
+import AppBackground from "./img/AppBackground.jpg";
 const useStyles = makeStyles((theme) => ({
-	containerLight: {
-		height: "100%",
-		width: "100%",
+	App: {
+		boxSizing: "border-box",
+		height: "100vh",
+		backgroundImage: `url(${AppBackground})`,
+		display: "flex",
+		justifyContent: "flex-end",
+
 	},
-	containerDark: {
-		height: "100%",
-		width: "100%",
-    backgroundColor: "#353C51",
+	logo: {
+		color: "#FFF5EE",
+		display: "flex",
+		flexDirection: "column",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+		height: "75vh",
+	},
+	logoText: {
+		color: "#FFF5EE",
+    textAlign: "center",
+    width: "75%",
+    marginRight: "3%",
 
 	},
 }));
@@ -18,10 +33,12 @@ function App() {
 const [state, dispatch] = useReducer(classReducer, initialState);
 	const classes = useStyles();
   return (
-    <div className="App">
-      
-    </div>
-  );
+		<Grid container className={classes.App}>
+			<Grid item className={classes.logo}>
+				<h1 className={classes.logoText}>ALBUMS I NEED TO HEAR!</h1>
+			</Grid>
+		</Grid>
+	);
 }
 
 export default App;
