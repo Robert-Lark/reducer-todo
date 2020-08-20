@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Appbar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/toolbar";
 import Typography from "@material-ui/core/Typography";
-import { classReducer, initialState } from "..//Reducers";
+
 import headerBackground from "./headerBackground.png";
 
 const useStyles = makeStyles((theme) => ({
