@@ -1,9 +1,9 @@
-import React, {useReducer} from "react";
+import React, { useReducer } from "react";
 import imgArray from "../img/imgArray.js";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import { toggleClassListened, display } from "../Actions";
 
 const useStyles = makeStyles(() => ({
@@ -22,30 +22,21 @@ const useStyles = makeStyles(() => ({
 	img: {
 		width: "200px",
 		height: "200px",
-		border: "2px solid black",
 	},
 	listened: {
 		width: "200px",
 		height: "200px",
-		border: "2px solid black",
 		transition: "opacity 5s",
 		opacity: "50%",
 	},
 }));
 
-
-
 const Album = (props) => {
-    const dispatch = useDispatch();
-    const completed = useSelector(state => state.completed);
-    const showHide = useSelector((state) => state.display);
-    const classes = useStyles();
+	const dispatch = useDispatch();
+	const completed = useSelector((state) => state.listened);
+	const classes = useStyles();
 	return (
-		<Grid
-			container
-
-			className={classes.container}
-		>
+		<Grid container className={classes.container}>
 			{imgArray.map((img) => (
 				<Grid Item>
 					<Paper
@@ -57,7 +48,7 @@ const Album = (props) => {
 							src={img.img}
 							className={completed ? classes.listened : classes.img}
 							alt="mix"
-							onClick={() => dispatch(toggleClassListened(img))}
+							onClick={() => dispatch(toggleClassListened())}
 						/>
 					</Paper>
 				</Grid>

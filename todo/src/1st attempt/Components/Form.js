@@ -1,9 +1,11 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from "react";
+import { addAlbumReducer, initialState } from "../Reducers/addAlbum";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 //import { classReducer, initialState } from "../Reducers";
+import {addAlbum} from "../Actions"
 
 const useStyles = makeStyles((theme) => ({
 	logo: {
@@ -56,25 +58,50 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Form(props) {
-   // const [state, dispatch] = useReducer(classReducer, initialState);
-    	const classes = useStyles();
+
+	const [state, dispatch] = useReducer(addAlbumReducer, initialState);
+    
+    const classes = useStyles();
+    
+    function handleSubmit (e) {
+        e.preventDefault()
+        dispatch({type: addAlbum})
+    }
+
+    // function newAlbum(name) {
+    //     return {
+	// 				id: Date.now(),
+	// 				albumArtist: name,
+	// 				albumName: action.payload,
+	// 				label: action.payload,
+	// 			};
+    // }
+    
+    const addAlbum = () => {
+			return {
+				type: "ADD_ALBUM",
+				payload: {},
+			};
+		};
+    
     return (
-			<Grid item className={classes.logo}>
-				<h1 className={classes.logoText}>ALBUMS I NEED TO HEAR</h1>
-				<form className={classes.add} noValidate autoComplete="off">
-					<TextField
-						className={classes.addInput}
-						placeholder="ALBUM NAME HERE"
-					/>
-					<Button className={classes.button} variant="contained">
-						Submit
-					</Button>
-					<Button className={classes.clearButton} variant="contained">
-						Clear Listened
-					</Button>
-				</form>
-			</Grid>
-		);
+		<Grid item className={classes.logo}>
+			<h1 className={classes.logoText}>ALBUMS I NEED TO HEAR</h1>
+			<form className={classes.add} noValidate autoComplete="off" onSubmit={handleSubmit}>
+				<TextField
+					type="text"
+					className={classes.addInput}
+					placeholder="ALBUM NAME HERE"
+				/>
+				<Button className={classes.button} variant="contained">
+					Submit
+				</Button>
+				<Button className={classes.clearButton} variant="contained">
+					Clear Listened
+				</Button>
+			</form>
+		</Grid>
+	);
 }
 
 export default Form;

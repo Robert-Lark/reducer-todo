@@ -1,4 +1,4 @@
-const displayReducer = (state = true, action) => {
+const displayReducer = (state = false, action) => {
     switch (action.type) {
 			case "TOGGLE_DISPLAY":
 				return !state

@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from "react";
-import Todo from "./Todo";
+import {addAlbumReducer, initialState} from "../Reducers/addAlbum"
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/styles";
@@ -27,20 +27,17 @@ const useStyles = makeStyles((theme) => ({
 
 
 const AlbumList = (props) => {
+	const [state, dispatch] = useReducer(addAlbumReducer, initialState);
     const classes = useStyles();
 return (
 	<Box className={classes.box}>
-		{props.albumList.map((album) => (
+
 			<Card className={classes.card}>
 				<CardContent className={classes.cardContent}>
-					<Todo
-						key={album.id}
-						getErDone={album}
-						toggleTask={props.toggleTask}
-					/>
+	
 				</CardContent>
 			</Card>
-		))}
+
 	</Box>
 );}
 

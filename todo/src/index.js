@@ -1,20 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {createStore, combineReducers} from 'redux';
-import App from './App';
-import allReducer from './Reducers' 
-import { Provider } from 'react-redux'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from './2nd attempt/App.js';
 
-const store = createStore(
-	allReducer,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
 
 ReactDOM.render(
 	<React.StrictMode>
-		<Provider store={store}>
-			<App />
-		</Provider>
+		<App />
 	</React.StrictMode>,
 	document.getElementById("root")
 );
