@@ -2,7 +2,7 @@ import React from 'react';
 import { ACTIONS } from '../Actions'
 
 export function newTodo(name) {
-    return { id: Date.now(), name: name, complete: false };
+    return { id: Date.now(), item: name, complete: false };
 }
 
 

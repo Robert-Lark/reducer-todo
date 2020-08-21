@@ -12,10 +12,10 @@ function App() {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		dispatch({ type: ACTIONS.ADD_TODO, payload: { name: name } });
+		dispatch({ type: ACTIONS.ADD_TODO, payload: { item: name } });
 		setName("");
 	}
-console.log(todos)
+
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
