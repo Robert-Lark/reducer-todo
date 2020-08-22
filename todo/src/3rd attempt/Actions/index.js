@@ -1,0 +1,5 @@
+export const ACTIONS = {
+    ADD_TODO: "ADD TODO",
+    TOGGLE_TODO: "MARK COMPLETED",
+    DELETE_TODO: "DELETE TODO",
+};
