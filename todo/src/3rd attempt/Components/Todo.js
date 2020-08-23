@@ -5,21 +5,24 @@ import { useStyles } from "../UI/Styles";
 import Grid from "@material-ui/core/Grid";
 
 export function newTodo(name, url) {
-	return { id: Date.now(), item: name, complete: false };
+    return { id: Date.now(), item: name, completed: false };
 }
 
 function Todo({ todo, dispatch }) {
-	const classes = useStyles();
-	console.log(todo);
-	return (
-		<Grid Item className={classes.todoContainer}>
-			<Paper variant="secondary" elevation="3" className={classes.artistCard}>
-                <img 
-                className= {todo.complete ? classes.imgHide : classes.img} 
-                src={todo.item} onClick={() =>
-                    dispatch({ type: ACTIONS.TOGGLE_TODO, payload: { id: todo.id } })
-                }/>
-			</Paper>
+
+
+    
+    const classes = useStyles();
+    console.log(todo);
+    return (
+        <Grid Item className={classes.todoContainer}>
+            <Paper variant="secondary" elevation="3" className={classes.artistCard}>
+                <img
+                    className={todo.completed ? classes.imgHide : classes.img}
+                    src={todo.item} onClick={() =>
+                        dispatch({ type: ACTIONS.TOGGLE_TODO, payload: { id: todo.id } })
+                    } />
+            </Paper>
             <button
                 className={classes.button}
                 onClick={() =>
@@ -28,8 +31,8 @@ function Todo({ todo, dispatch }) {
             >
                 Clear Listened
 					</button>
-		</Grid>
-	);
+        </Grid>
+    );
 }
 
 export default Todo;

@@ -59,7 +59,7 @@ export const useStyles = makeStyles((theme) => ({
 		height: "10%",
 	},
 	addInput: {
-		width: "40%",
+		width: "42%",
 		borderRadius: "20px",
 		backgroundColor: "white",
 	},

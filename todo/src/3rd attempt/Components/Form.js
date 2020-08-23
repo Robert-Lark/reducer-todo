@@ -13,9 +13,14 @@ function Form(props) {
 
 
 	function handleSubmit(e) {
-        e.preventDefault();
-		dispatch({ type: ACTIONS.ADD_TODO, payload: {item: name } });
+		e.preventDefault();
+		dispatch({ type: ACTIONS.ADD_TODO, payload: { item: name } });
 		setName("");
+	}
+
+	function handleClick () {
+
+		dispatch({ type: ACTIONS.DELETE_COMPLETED})
 	}
 
 	const classes = useStyles();
@@ -32,19 +37,20 @@ function Form(props) {
 					<TextField
 						type="text"
 						className={classes.addInput}
-						placeholder="ARTWORK URL HRE"
+						placeholder="ARTWORK URL HERE"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
 					/>
-					{/* <button
+
+				</form>
+				<button
 						className={classes.button}
-						onClick={() =>
-							dispatch({ type: ACTIONS.DELETE_TODO, payload: { id: todos.id } })
-						}
+						onClick=
+							{handleClick}
+	
 					>
 						Clear Listened
-					</button> */}
-				</form>
+					</button>
 			</Grid>
 		</Grid>
 	);
